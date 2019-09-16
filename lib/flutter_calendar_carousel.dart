@@ -209,7 +209,7 @@ class _CalendarState<T> extends State<CalendarCarousel<T>> {
       /// width percentage
     );
 
-    _localeDate = DateFormat.yMMM(widget.locale);
+    _localeDate = DateFormat.yMMMM(widget.locale);
 
     if (widget.firstDayOfWeek == null)
       firstDayOfWeek = (_localeDate.dateSymbols.FIRSTDAYOFWEEK + 1) % 7;
