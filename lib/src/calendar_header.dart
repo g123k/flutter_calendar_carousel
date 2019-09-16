@@ -4,7 +4,7 @@ import 'default_styles.dart' show defaultHeaderTextStyle;
 class CalendarHeader extends StatelessWidget {
   /// Passing in values for [leftButtonIcon] or [rightButtonIcon] will override [headerIconColor]
   CalendarHeader(
-      {@required this.headerTitle,
+      {@required String headerTitle,
       this.headerMargin,
       this.showHeader,
       this.headerTextStyle,
@@ -15,7 +15,8 @@ class CalendarHeader extends StatelessWidget {
       @required this.onLeftButtonPressed,
       @required this.onRightButtonPressed,
       this.isTitleTouchable,
-      @required this.onHeaderTitlePressed});
+      @required this.onHeaderTitlePressed}) :
+  headerTitle = toFirstLettersUpperCase(headerTitle);
 
   final String headerTitle;
   final EdgeInsetsGeometry headerMargin;
@@ -68,4 +69,28 @@ class CalendarHeader extends StatelessWidget {
                   ])),
         )
       : Container();
+
+  static String toFirstLettersUpperCase(String text) {
+    if (text == null || text.isEmpty) {
+      return text;
+    }
+
+    var split = text.split(' ');
+    StringBuffer buffer = StringBuffer();
+
+    for (int i = 0; i != split.length; i++) {
+      String part = split[i];
+
+      if (part.length > 0) {
+        buffer.write(part[0].toUpperCase());
+        buffer.write(part.substring(1));
+
+        if (i < split.length - 1) {
+          buffer.write(' ');
+        }
+      }
+    }
+
+    return buffer.toString();
+  }
 }
