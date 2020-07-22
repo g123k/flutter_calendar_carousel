@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
-    show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
+import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
+    show CalendarCarousel;
 import 'package:intl/intl.dart' show DateFormat;
 
 void main() => runApp(new MyApp());
@@ -163,7 +162,6 @@ class _MyHomePageState extends State<MyHomePage> {
 //          weekDays: null, /// for pass null when you do not want to render weekDays
       headerText: 'Custom Header',
 //          markedDates: _markedDate,
-      weekFormat: true,
       markedDatesMap: _markedDateMap,
       height: 200.0,
       selectedDateTime: _currentDate2,
@@ -203,18 +201,17 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.red,
       ),
       thisMonthDayBorderColor: Colors.grey,
-      weekFormat: false,
       markedDatesMap: _markedDateMap,
       height: 420.0,
       selectedDateTime: _currentDate2,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
-      markedDateCustomShapeBorder: CircleBorder(
-        side: BorderSide(color: Colors.yellow)
-      ),
+      markedDateCustomShapeBorder:
+          CircleBorder(side: BorderSide(color: Colors.yellow)),
       markedDateCustomTextStyle: TextStyle(
         fontSize: 18,
         color: Colors.blue,
       ),
+      childAspectRatio: 1.0,
       showHeader: false,
       // markedDateIconBuilder: (event) {
       //   return Container(
